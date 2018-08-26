@@ -1,9 +1,16 @@
-apply plugin: 'java'
-apply plugin: 'maven'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+    }
+}
 
-group = "io.luxcore"
-version = "0.1"
 
+plugins {
+    id "no.tornado.fxlauncher" version "1.0.18"
+}
 
 repositories {
     maven { url "http://lab3.eltex.loc:8888/repository/snapshots" }
@@ -11,8 +18,19 @@ repositories {
     maven { url "http://download.java.net/maven/2/" }
     maven { url "http://repo.maven.apache.org/maven2" }
     maven { url "https://jitpack.io" }
-
 }
+
+apply plugin: 'java'
+apply plugin: 'maven'
+//apply plugin: 'no.tornado.fxlauncher'
+
+apply plugin: 'javafx-gradle-plugin'
+
+group = "io.luxcore"
+version = "0.1"
+
+
+
 dependencies {
     compile "com.google.http-client:google-http-client:1.23.0"
     compile "com.google.http-client:google-http-client-jackson2:1.23.0"
@@ -31,6 +49,20 @@ jar {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
+
+jfx {
+    mainClass = 'io.luxcore.LCApplication'
+    vendor = 'Luxcore'
+    additionalAppResources = 'src/main/bin/unix'
+}
+
+task deb(dependsOn: jfxNative)
+
 configurations {
     jar.archiveName = 'luxgatej.jar'
+}
+
+task launch(type:JavaExec) {
+    main = 'io.luxcore.LCApplication'
+    classpath = sourceSets.main.runtimeClasspath
 }
