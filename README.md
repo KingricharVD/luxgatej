@@ -1,4 +1,8 @@
-## Luxgatej
+![LUX Logo](ui/src/main/resources/io/luxcore/fx/lux_logo_horizontal.png)
+
+"FIRST OF ITS KIND"
+
+Luxcore is GNU AGPLv3 licensed.
 
 Desktop UI app for Luxgate platform.
 
