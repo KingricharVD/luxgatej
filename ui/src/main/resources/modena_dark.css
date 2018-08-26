@@ -27,6 +27,13 @@
 
     /* color of non-focused yet selected elements */
     -fx-selection-bar-non-focused: rgb(50, 50, 50);
+    -fx-font-family: Roboto;
+
+}
+
+.big {
+    -fx-font-size: 20;
+    -fx-font-family: 'Roboto Light';
 }
 
 /* Fix derived prompt color for text fields */
@@ -40,6 +47,7 @@
 }
 
 .text-id {
+    -fx-font-family: Roboto;
     -fx-fill: rgb(220, 220, 220);
 }
 

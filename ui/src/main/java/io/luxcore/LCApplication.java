@@ -15,6 +15,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,16 +53,27 @@ public class LCApplication extends Application {
 
         Parent root = loader.load();
         statusCheck.start();
-        Scene scene = new Scene(root);
 
+        loadFonts();
+        Scene scene = new Scene(root);
         primaryStage.setTitle("LuxGateJ");
         primaryStage.setScene(scene);
         primaryStage.setOnHidden(e -> {
-            //Object controller = loader.getController();
             eventBus.post(new ShutdownEvent());
             Platform.exit();
         });
         primaryStage.show();
+    }
+
+    private void loadFonts() {
+        Font.loadFont(
+                getClass().getResource("/fonts/Roboto-Bold.ttf").toExternalForm(), -1);
+        Font.loadFont(
+                getClass().getResource("/fonts/Roboto-Regular.ttf").toExternalForm(), -1);
+        Font.loadFont(
+                getClass().getResource("/fonts/Roboto-Medium.ttf").toExternalForm(), -1);
+        Font.loadFont(
+                getClass().getResource("/fonts/Roboto-Light.ttf").toExternalForm(), -1);
     }
 
     @Subscribe

@@ -27,8 +27,10 @@ jar {
     manifest {
         attributes "Main-Class": "io.luxcore.LCApplication"
     }
-
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
+}
+configurations {
+    jar.archiveName = 'luxgatej.jar'
 }
