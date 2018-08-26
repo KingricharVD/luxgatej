@@ -8,8 +8,7 @@ import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
 import io.luxcore.LuxgateInstance;
 import io.luxcore.LuxgateService;
-import io.luxcore.Shutdown;
-import io.luxcore.dto.rs.StatusResponse;
+import io.luxcore.dto.rs.Asset;
 import io.luxcore.events.LuxgateStatusEvent;
 import io.luxcore.events.ShutdownEvent;
 import javafx.application.Platform;
@@ -19,6 +18,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.effect.Bloom;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -26,10 +27,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Login dialog controller.
@@ -44,6 +43,8 @@ public class LoginController implements Initializable {
     @FXML public Text statusMark;
     @FXML public AnchorPane anchorPane;
     @FXML public Group iconGroup;
+    @FXML public ImageView logo;
+    @FXML public Label invalidTryLabel;
 
     @Inject
     private LuxgateInstance instance;
@@ -67,12 +68,28 @@ public class LoginController implements Initializable {
             .color(Color.web("#FFD600"))
             .build();
 
+    private Bloom bloomEffect;
+
     public void initialize(URL location, ResourceBundle resources) {
         setStatusIcon(statusUnknownIcon);
+        bloomEffect = new Bloom();
+        bloomEffect.setThreshold(0.1);
     }
 
     public void onPasswordEnter(ActionEvent event) {
 
+        String password = passwordField.textProperty().get();
+        logger.info("Login try: {}", password);
+        instance.setPassword(password);
+        if (service.login()) {
+            logger.info("Password is valid");
+            logo.setEffect(bloomEffect);
+            invalidTryLabel.setVisible(false);
+        } else {
+            logger.info("Password in invalid");
+            logo.setEffect(null);
+            invalidTryLabel.setVisible(true);
+        }
     }
 
     @Subscribe

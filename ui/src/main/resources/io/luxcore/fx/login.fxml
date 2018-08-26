@@ -32,7 +32,7 @@
             <padding>
                 <Insets top="40.0" />
             </padding>
-            <Label text="Enter password" VBox.vgrow="NEVER" styleClass="big">
+            <Label styleClass="big" text="Enter password" VBox.vgrow="NEVER">
                 <VBox.margin>
                     <Insets />
                 </VBox.margin>
@@ -45,6 +45,7 @@
                <Font size="10.0" />
             </font>
             </PasswordField>
+         <Label fx:id="invalidTryLabel" styleClass="red" text="Password invalid. Try again" visible="false" />
          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
             <children>
                <Group fx:id="iconGroup">
@@ -56,7 +57,7 @@
             </children>
          </HBox>
         </VBox>
-      <ImageView cache="true" depthTest="DISABLE" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <ImageView fx:id="logo" cache="true" depthTest="DISABLE" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <image>
             <Image url="@luxgate-icon.png" />
          </image>

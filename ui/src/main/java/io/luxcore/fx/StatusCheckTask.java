@@ -25,8 +25,6 @@ public class StatusCheckTask {
     @Inject
     private EventBus eventBus;
     @Inject
-    private LuxgateInstance instance;
-    @Inject
     private LuxgateService service;
 
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -38,7 +36,7 @@ public class StatusCheckTask {
         eventBus.register(this);
         Runnable statusCheck = () -> {
             try {
-                StatusResponse status = service.status(instance);
+                StatusResponse status = service.status();
                 logger.info("Status: {}", status);
                 boolean statusIsGood = "success".equals(status.getResult());
                 eventBus.post(new LuxgateStatusEvent(statusIsGood));

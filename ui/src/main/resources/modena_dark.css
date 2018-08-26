@@ -27,13 +27,17 @@
 
     /* color of non-focused yet selected elements */
     -fx-selection-bar-non-focused: rgb(50, 50, 50);
-    -fx-font-family: Roboto;
+    -fx-font-family: 'Roboto Light';
 
 }
 
 .big {
     -fx-font-size: 20;
-    -fx-font-family: 'Roboto Light';
+}
+
+.red {
+    -fx-font-size: 16;
+    -fx-text-fill: red;
 }
 
 /* Fix derived prompt color for text fields */
