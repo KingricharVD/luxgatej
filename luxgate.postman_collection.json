@@ -1,0 +1,681 @@
+{
+	"info": {
+		"_postman_id": "5d21aacd-4f54-46b6-9be5-eabb4672fab6",
+		"name": "luxgate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "lc_help",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"help\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_listprices",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"listprices\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_listpeers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"listpeers\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_listassets",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"listassets\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_notarizations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"notarizations\", \"coin\":\"LUX\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_generateaddress",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"generateaddress\",\"passphrase\":\"test-pass\", \"coin\":\"LUX\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_statsdisp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"statsdisp\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_ticker",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"ticker\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_secretaddresses",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"secretaddresses\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_swapstatus",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"swapstatus\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_dynamictrust",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"dynamictrust\", \"address\":\"LfnZZBC5Dds5o4n61np5tLMDp74ZUz2wmd\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_inuse",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"inuse\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_listtrades",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"listtrades\", \"base\": \"CRYPTO\", \"rel\":\"BTC\" , \"scale\": 60, \"starttime\": 1535050000 , \"endtime\": 1535050600 }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_listorders",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"listorders\", \"base\": \"BTC\", \"rel\":\"LUX\"  }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"status\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_instantdex_claim",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\",\"method\":\"instantdex_claim\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_getprice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\", \"method\":\"getprice\",\"base\":\"CRYPTO\",\"rel\":\"LUX\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_balance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\", \n  \"method\":\"getbalance\",\n  \"coin\":\"LUX\",\n  \"address\":\"LfnZZBC5Dds5o4n61np5tLMDp74ZUz2wmd\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_porfolio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\", \n  \"method\":\"portfolio\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_recentswaps",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\", \n  \"method\":\"recentswaps\",\n  \"limit\":1\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_getasset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\", \n  \"method\":\"getasset\",\n  \"coin\":\"LUX\"\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_getendpoint",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\", \n  \"method\":\"getendpoint\"\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_orderbook[ERROR]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\", \n  \"method\":\"orderbook\",\n  \"base\": \"REVS\",\n  \"rel\":\"LUX\"\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lc_getfee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"password\": \"9fda843898f14fcbf2b600361d5b8e5659e4976d168084a10c18f17db0592654\", \n  \"method\":\"getfee\",\n  \"coin\": \"BTC\"\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9883",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9883"
+				}
+			},
+			"response": []
+		}
+	]
+}

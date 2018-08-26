@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = "io.luxcore"
+version = "0.1"
+
+
+repositories {
+    maven { url "http://lab3.eltex.loc:8888/repository/snapshots" }
+    maven { url "http://lab3.eltex.loc:8888/repository/internal/" }
+    maven { url "http://download.java.net/maven/2/" }
+    maven { url "http://repo.maven.apache.org/maven2" }
+    maven { url "https://jitpack.io" }
+
+}
+dependencies {
+    compile "com.google.http-client:google-http-client:1.23.0"
+    compile "com.google.http-client:google-http-client-jackson2:1.23.0"
+    compile "com.google.inject:guice:4.1.0"
+    compile "com.google.guava:guava:26.0-jre"
+    compile 'com.github.adrianromero:fonticon:1.2.1'
+    compile "org.slf4j:slf4j-api:1.7.25"
+    runtime "ch.qos.logback:logback-classic:1.0.13"
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "io.luxcore.LCApplication"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
