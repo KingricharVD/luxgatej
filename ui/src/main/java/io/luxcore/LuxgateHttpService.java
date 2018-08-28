@@ -52,7 +52,7 @@ public class LuxgateHttpService implements LuxgateService {
     @Override
     public StatusResponse status() {
         return rqFactory
-                .post(instance.getUrl(), new UnauthRequest("status"), StatusResponse.class)
+                .postQuietly(instance.getUrl(), new UnauthRequest("status"), StatusResponse.class)
                 .getSuccessOrThrow();
     }
 
@@ -75,40 +75,53 @@ public class LuxgateHttpService implements LuxgateService {
         private HttpRequestFactory httpRequestFactory;
         private JsonFactory jsonFactory;
 
-        public RequestFactory(HttpRequestFactory httpFactory, JsonFactory jsonFactory) {
+        RequestFactory(HttpRequestFactory httpFactory, JsonFactory jsonFactory) {
             this.httpRequestFactory = httpFactory;
             this.jsonFactory = jsonFactory;
         }
 
 
-        public <T> LuxgateResponse<T> post(GenericUrl url, Object data, Class<T> clazz) {
+        <T> LuxgateResponse<T> post(GenericUrl url, Object data, Class<T> clazz) {
             HttpRequest httpRequest = null;
-            HttpResponse response = null;
             try {
                 httpRequest = httpRequestFactory.buildPostRequest(url, new JsonHttpContent(jsonFactory, data));
-                response = httpRequest.execute();
-                try {
-                    T payload = response.parseAs(clazz);
-                    return new LuxgateResponse<>(payload);
-                } catch (IllegalArgumentException e) {
-                    try {
-                        if (response != null) {
-                            APIError error = response.parseAs(APIError.class);
-                            logger.info("API error: {}", error);
-                            return new LuxgateResponse<>(error);
-                        }
-                        throw new RuntimeException("Responce is null", e);
-                    } catch (Exception ex) {
-                        if (ex instanceof IOException) {
-                            IOException cause = (IOException) ex;
-                            return new LuxgateResponse<>(new APIError(cause.getMessage()));
-                        }
-                        throw ex;
-                    }
-                }
+                return execute(httpRequest, clazz);
             } catch (IOException e) {
                 logger.error("Error while building request: "  + httpRequest, e);
                 throw new RuntimeException(e);
+            }
+        }
+
+        <T> LuxgateResponse<T> postQuietly(GenericUrl url, Object data, Class<T> clazz) {
+            try {
+                HttpRequest httpRequest = httpRequestFactory.buildPostRequest(url, new JsonHttpContent(jsonFactory, data));
+                return execute(httpRequest, clazz);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        private <T> LuxgateResponse<T> execute(HttpRequest httpRequest, Class<T> clazz) throws IOException {
+            HttpResponse response;
+            response = httpRequest.execute();
+            try {
+                T payload = response.parseAs(clazz);
+                return new LuxgateResponse<>(payload);
+            } catch (IllegalArgumentException e) {
+                try {
+                    if (response != null) {
+                        APIError error = response.parseAs(APIError.class);
+                        logger.info("API error: {}", error);
+                        return new LuxgateResponse<>(error);
+                    }
+                    throw new RuntimeException("Responce is null", e);
+                } catch (Exception ex) {
+                    if (ex instanceof IOException) {
+                        IOException cause = (IOException) ex;
+                        return new LuxgateResponse<>(new APIError(cause.getMessage()));
+                    }
+                    throw ex;
+                }
             }
         }
     }
